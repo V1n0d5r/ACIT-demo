@@ -140,10 +140,3 @@ resource "azurerm_network_interface_security_group_association" "example" {
     network_interface_id      = azurerm_network_interface.vmnic.id
     network_security_group_id = azurerm_network_security_group.nsg.id
 }
-
- backend "azurerm" {
-    resource_group_name   = "terraformstate"
-    storage_account_name  = "terraformstate2021"
-    container_name        = "tfstate"
-    key                   = "mhe7FWq0KxRXgnjD8rrmIb5JPZRSe1ToprASWZLb7MQZEyE8Gk8Eq+6A5RBQy9R74ho0W54BqMj+wtZjI3nI0A=="
-}
