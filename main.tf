@@ -93,7 +93,7 @@ resource "azurerm_network_security_group" "nsg" {
     }
 }
 
-resource "azurestack_network_security_rule" "rdp" {
+resource "azurerm_network_security_rule" "rdp" {
   name                        = "rdp"
   priority                    = 1002
   direction                   = "Inbound"
@@ -104,7 +104,7 @@ resource "azurestack_network_security_rule" "rdp" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name = azurerm_resource_group.rg.name
-  network_security_group_name = azurestack_network_security_group.nsg.name 
+  network_security_group_name = azurerm_network_security_group.nsg.name 
   }
 
 # Create our Virtual Machine - ACITDemo-VM01
