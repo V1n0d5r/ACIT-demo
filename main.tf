@@ -87,22 +87,26 @@ resource "azurerm_network_security_group" "nsg" {
         destination_address_prefix = "*"
     }
 
-        security_rule {
-        name                       = "RDP"
-        priority                   = 1002
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "Tcp"
-        source_port_range          = "*"
-        destination_port_range     = "3389"
-        source_address_prefix      = "*"
-        destination_address_prefix = "*"
-    }
 
     tags = {
         environment = "ACIT Demo"
     }
 }
+
+resource "azurestack_network_security_rule" "rdp" {
+  name                        = "rdp"
+  priority                    = 1002
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "3389"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name = azurerm_resource_group.rg.name
+  network_security_group_name = azurestack_network_security_group.nsg.name 
+  }
+
 # Create our Virtual Machine - ACITDemo-VM01
 resource "azurerm_virtual_machine" "acitdemovm1" {
   name                  = "acitdemovm1"
