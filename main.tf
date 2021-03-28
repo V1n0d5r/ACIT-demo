@@ -129,7 +129,7 @@ resource "azurerm_virtual_machine" "acitdemovm1" {
   os_profile {
     computer_name      = "acitdemovm1"
     admin_username     = "acitdemovmadmin"
-    admin_password     = "Password123$"
+    admin_password     = "Password1234$"
   }
   os_profile_windows_config {
   }
