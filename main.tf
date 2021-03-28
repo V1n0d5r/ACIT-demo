@@ -43,7 +43,7 @@ resource "azurerm_storage_account" "ACITDemoSA" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   tags = {
-    environment = "ACITDemo1"
+    environment = "ACITDemo2"
   }
 }
 
