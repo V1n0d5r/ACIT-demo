@@ -16,13 +16,17 @@ provider "azurerm" {
 }
 data "azurerm_client_config" "current" {}
 
+terraform {
   backend "azurerm" {
-    resource_group_name   = "tstatenew"
-    storage_account_name  = "tstate10462"
-    container_name        = "tstate2021"
-    access_key            = "+uRmL73LSnXvSEGMG9pd26R28qvgFS9z3BcZrg+NHAExrs9HkRhOjNGWxT9c/J0iDcwF2t+txjCf0ZfDayV6pw=="
-    key                   = "remotestate.tfstate"
+    storage_account_name = "tstate10462"
+    container_name       = "tstate2021"
+    key                  = "prod.terraform.tfstate"
+
+    # rather than defining this inline, the Access Key can also be sourced
+    # from an Environment Variable - more information is available below.
+    access_key = "+uRmL73LSnXvSEGMG9pd26R28qvgFS9z3BcZrg+NHAExrs9HkRhOjNGWxT9c/J0iDcwF2t+txjCf0ZfDayV6pw=="
   }
+}
 
 # Create our Resource Group - ACIT-Demo
 resource "azurerm_resource_group" "rg" {
