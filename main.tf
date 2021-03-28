@@ -3,7 +3,7 @@ terraform {
     azurerm = {
       # Specify what version of the provider we are going to utilise
       source = "hashicorp/azurerm"
-      version = ">= 2.4.1"
+      version = "2.53.0"
     }
   }
 }
@@ -15,6 +15,15 @@ provider "azurerm" {
   }
 }
 data "azurerm_client_config" "current" {}
+
+  backend "azurerm" {
+    resource_group_name   = "tstatenew"
+    storage_account_name  = "tstate10462"
+    container_name        = "tstate2021"
+    access_key            = "+uRmL73LSnXvSEGMG9pd26R28qvgFS9z3BcZrg+NHAExrs9HkRhOjNGWxT9c/J0iDcwF2t+txjCf0ZfDayV6pw=="
+    key                   = "remotestate.tfstate"
+  }
+
 # Create our Resource Group - ACIT-Demo
 resource "azurerm_resource_group" "rg" {
   name     = "ACIT-Demo-rg"
