@@ -1,15 +1,20 @@
 terraform {
   required_providers {
     azurerm = {
+      # Specify what version of the provider we are going to utilise
       source = "hashicorp/azurerm"
-      version = "=2.0.0"
-      features {}
+      version = ">= 2.4.1"
     }
   }
 }
 provider "azurerm" {
-  # Configuration options
+  features {
+      key_vault {
+      purge_soft_delete_on_destroy = true
+    }
+  }
 }
+data "azurerm_client_config" "current" {}
 # Create our Resource Group - ACIT-Demo
 resource "azurerm_resource_group" "rg" {
   name     = "ACIT-Demo-rg"
