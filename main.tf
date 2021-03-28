@@ -16,6 +16,13 @@ provider "azurerm" {
 }
 data "azurerm_client_config" "current" {}
 
+  backend "azurerm" {
+    resource_group_name   = "tstatenew"
+    storage_account_name  = "tstate10462"
+    container_name        = "tstate2021"
+    key                   = "terraform.tfstate"
+	  ARM_ACCESS_KEY        = "bVH4MYIMCKor/lqI9TGPYhZ+uPcoC9OzYDdyPL/7/rhjDry4UO8eyv6Wq+g7Ykme6ouvhQ/Tbo1o88mCFMKLcg=="
+  }
 
 
 # Create our Resource Group - ACIT-Demo
