@@ -64,7 +64,7 @@ resource "azurerm_public_ip" "pubip" {
     allocation_method            = "Dynamic"
 
     tags = {
-        environment = "ACIT Demo1 2021"
+        environment = "ACIT Demo March"
     }
 }
 # Create our vNIC for our VM and assign it to our Virtual Machines Subnet
