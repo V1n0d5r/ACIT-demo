@@ -26,7 +26,7 @@ terraform {
   }
 }
 
-# Create our Resource Group - ACIT-Demo
+# Create our Resource Group - ACIT
 resource "azurerm_resource_group" "rg" {
   name     = "ACIT-Demo-rg"
   location = "UK South"
